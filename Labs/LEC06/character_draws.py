@@ -49,6 +49,13 @@ def move_triangle_bc():
         y = 100 + (500 - 100) * t
         draw_boy(x, y)
 
+def move_triangle_ca():
+    for step in range(101):
+        t = step / 100
+        x = 400 + (100 - 400) * t
+        y = 500 + (100 - 500) * t
+        draw_boy(x, y)
+
 def move_triangle():
     print('triangle')
 
@@ -57,7 +64,7 @@ from pico2d import *
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-move_triangle_bc()
+move_triangle_ca()
 
 delay(1)
 close_canvas()
