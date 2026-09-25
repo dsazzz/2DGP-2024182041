@@ -21,7 +21,8 @@ def move_top():
         draw_boy(x, 550)
 
 def move_right():
-    print('right')
+    for y in range(550, 49, -5):
+            draw_boy(750, y)
 
 def move_bottom():
     print('bottom')
@@ -43,7 +44,7 @@ from pico2d import *
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-move_top()
+move_right()
 
 delay(1)
 close_canvas()
