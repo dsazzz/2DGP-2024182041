@@ -57,14 +57,16 @@ def move_triangle_ca():
         draw_boy(x, y)
 
 def move_triangle():
-    print('triangle')
+    move_triangle_ab()
+    move_triangle_bc()
+    move_triangle_ca()
 
 from pico2d import *
 
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-move_triangle_ca()
+move_triangle()
 
 delay(1)
 close_canvas()
