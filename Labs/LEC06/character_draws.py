@@ -38,6 +38,10 @@ def move_rectangle():
     move_bottom()
     move_left()
 
+def move_triangle_ab():
+    for x in range(100, 701, 5):
+        draw_boy(x, 100)
+        
 def move_triangle():
     print('triangle')
 
@@ -46,7 +50,7 @@ from pico2d import *
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-move_rectangle()
+move_triangle_ab()
 
 delay(1)
 close_canvas()
