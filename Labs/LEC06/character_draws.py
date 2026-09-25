@@ -17,7 +17,8 @@ def move_circle():
        
 
 def move_top():
-    print('top')
+    for x in range(50, 751, 5):
+        draw_boy(x, 550)
 
 def move_right():
     print('right')
@@ -42,8 +43,7 @@ from pico2d import *
 open_canvas(800, 600)
 boy = load_image('character.png')
 
-clear_canvas()
-move_circle()
-update_canvas()
+move_top()
+
 delay(1)
 close_canvas()
