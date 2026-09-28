@@ -56,5 +56,6 @@ while True:
     # move_circle()
     # move_rectangle()
     # move_triangle()
-    move_triangle_left()
+    # move_triangle_left()
+    move_triangle_bottom()
    
