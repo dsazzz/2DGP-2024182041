@@ -1,5 +1,12 @@
 # 실습 과제 진행
 import math
+
+def draw_boy(x, y):
+    clear_canvas()
+    boy.draw(x, y)
+    update_canvas()
+    delay(0.01)
+    
 def move_top():
     pass
 def move_right():
