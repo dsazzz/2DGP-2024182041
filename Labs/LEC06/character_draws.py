@@ -17,7 +17,8 @@ def move_bottom():
     for x in range(750, 49, -5):
         draw_boy(x, 50)
 def move_left():
-    pass
+    for y in range(50, 551, 5):
+        draw_boy(50, y)
 def move_circle():
     for degree in range(360):
         theta = math.radians(degree)
@@ -49,4 +50,5 @@ while True:
     # move_triangle()
     # move_top()
     # move_right()
-    move_bottom()
+    # move_bottom()
+    move_left()
