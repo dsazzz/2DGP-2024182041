@@ -44,6 +44,11 @@ def move_triangle_left():
 def move_triangle_bottom():
     for x in range(150, 651, 5):
         draw_boy(x, 50)
+def move_triangle_right():
+    for step in range(101):
+        x = 650 - 250 * step / 100
+        y = 50 + 500 * step / 100
+        draw_boy(x, y)
 
 
 from pico2d import *
