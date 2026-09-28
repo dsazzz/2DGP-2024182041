@@ -57,9 +57,6 @@ boy = load_image('character.png')
 
 while True:
     move_circle()
-    move_rectangle()
-    # move_triangle()
-    # move_triangle_left()
-    # move_triangle_bottom()
-    # move_triangle_right()
+    # move_rectangle()
+    move_triangle()
    
