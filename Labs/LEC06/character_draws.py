@@ -8,7 +8,8 @@ def draw_boy(x, y):
     delay(0.01)
     
 def move_top():
-    pass
+    for x in range(50, 751, 5):
+        draw_boy(x, 550)
 def move_right():
     pass
 def move_bottom():
@@ -41,6 +42,7 @@ boy = load_image('character.png')
 
 
 while True:
-    move_circle()
-    move_rectangle()
-    move_triangle()
+    # move_circle()
+    # move_rectangle()
+    # move_triangle()
+    move_top()
