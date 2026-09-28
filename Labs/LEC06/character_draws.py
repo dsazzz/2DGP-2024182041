@@ -35,7 +35,9 @@ def move_rectangle():
     move_bottom()
     move_left()
 def move_triangle():
-    print('triangle')    
+    move_triangle_left()
+    move_triangle_bottom()
+    move_triangle_right()
 def move_triangle_left():
     for step in range(101):
         x = 400 - 250 * step / 100
@@ -60,8 +62,8 @@ boy = load_image('character.png')
 while True:
     # move_circle()
     # move_rectangle()
-    # move_triangle()
+    move_triangle()
     # move_triangle_left()
     # move_triangle_bottom()
-    move_triangle_right()
+    # move_triangle_right()
    
