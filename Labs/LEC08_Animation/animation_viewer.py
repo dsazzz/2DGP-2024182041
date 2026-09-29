@@ -3,9 +3,10 @@ from pico2d import *
 open_canvas(800, 600)
 char = load_image('ai_char_sheet.png')
 
-clear_canvas()
-char.clip_draw(110, 784, 182, 255, 400, 300, 364, 510)
-update_canvas()
-delay(3)
+for x in [115, 397] * 5:
+	clear_canvas()
+	char.clip_draw(x, 1480, 147, 242, 400, 300)
+	update_canvas()
+	delay(0.3)
 
 close_canvas()
