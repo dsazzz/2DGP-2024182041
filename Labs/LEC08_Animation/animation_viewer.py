@@ -11,9 +11,10 @@ char = load_image('ai_char_sheet.png')
 	# delay(0.3)
 
 # walking
-clear_canvas()
-char.clip_draw(103, 1132, 163, 253, 400, 300)
-update_canvas()
-delay(3)
+for x in [103, 397] * 5:
+	clear_canvas()
+	char.clip_draw(x, 1132, 163, 253, 400, 300)
+	update_canvas()
+	delay(0.3)
 
 close_canvas()
