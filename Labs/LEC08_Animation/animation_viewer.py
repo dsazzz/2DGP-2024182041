@@ -25,7 +25,7 @@ char = load_image('ai_char_sheet.png')
 	# delay(0.3)
 
 # attacking
-for x, y, width, height in [(139, 440, 177, 244), (380, 436, 811, 261), (1232, 436, 524, 254), (1807, 435, 310, 248)] * 5:
+for x, y, width, height in [(139, 440, 177, 244), (380, 436, 811, 261), (1232, 436, 524, 254), (1807, 435, 310, 248), (2198, 438, 146, 253)] * 5:
 	clear_canvas()
 	char.clip_draw(x, y, width, height, 400, 300)
 	update_canvas()
