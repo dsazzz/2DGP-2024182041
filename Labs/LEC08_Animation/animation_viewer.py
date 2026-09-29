@@ -38,10 +38,12 @@ sprite = (
 
 while True:
 	for action in sprite:
-		for left, bottom, width, height in action:
-			clear_canvas()
-			char.clip_draw(left, bottom, width, height, 400, 300, width * 2, height * 2)
-			update_canvas()
-			delay(0.3)
+		for _ in range(5):
+			for left, bottom, width, height in action:
+				clear_canvas()
+				char.clip_draw(left, bottom, width, height, 400, 300, width * 2, height * 2)
+				update_canvas()
+				delay(0.3)
+		delay(1)
 
 close_canvas()
