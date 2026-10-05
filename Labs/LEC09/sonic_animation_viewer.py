@@ -92,6 +92,8 @@ def main():
     sprite_sheet = load_image("sonic-sprite.png")
     frames = make_frames()
     validate_frames(frames)
+    x = CANVAS_WIDTH / 2
+    direction = 1
     while True:
         for event in get_events():
             if event.type == SDL_QUIT or (
@@ -102,10 +104,16 @@ def main():
         clear_canvas()
         for action in action_names():
             for _ in range(REPEAT_COUNT):
+                previous_time = get_time()
                 for frame in frames[action]:
+                    current_time = get_time()
+                    x, direction = next_position(
+                        action, x, direction, current_time - previous_time
+                    )
+                    previous_time = current_time
                     clear_canvas()
                     draw_frame(
-                        sprite_sheet, frame, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2
+                        sprite_sheet, frame, x, CANVAS_HEIGHT // 2
                     )
                     update_canvas()
                     delay(FRAME_TIME)
