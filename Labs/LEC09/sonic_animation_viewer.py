@@ -29,19 +29,6 @@ ACTION_STRIPS = (
 MOVING_ACTIONS = ("run", "roll", "spin", "attack", "brake")
 
 
-def first_frame():
-    bottom = SPRITE_HEIGHT - IDLE_TOP - FRAME_HEIGHT
-    return 1, bottom, FRAME_WIDTH, FRAME_HEIGHT
-
-
-def idle_frames():
-    bottom = SPRITE_HEIGHT - IDLE_TOP - FRAME_HEIGHT
-    return [
-        (1 + index * FRAME_STEP, bottom, FRAME_WIDTH, FRAME_HEIGHT)
-        for index in range(10)
-    ]
-
-
 def make_frames():
     frames = {}
     for action, count, top in ACTION_STRIPS:
