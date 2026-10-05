@@ -10,6 +10,7 @@ FRAME_WIDTH = 32
 FRAME_HEIGHT = 40
 FRAME_STEP = 34
 IDLE_TOP = 39
+FRAME_TIME = 0.08
 
 
 def first_frame():
@@ -38,6 +39,7 @@ def main():
         clear_canvas()
         draw_frame(sprite_sheet, frame, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
         update_canvas()
+        delay(FRAME_TIME)
 
 
 if __name__ == "__main__":
