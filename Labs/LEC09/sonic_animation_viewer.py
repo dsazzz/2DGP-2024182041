@@ -101,6 +101,12 @@ def draw_frame(sprite_sheet, frame, x, y):
     )
 
 
+def render(sprite_sheet, frame, x, y):
+    clear_canvas()
+    draw_frame(sprite_sheet, frame, x, y)
+    update_canvas()
+
+
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     sprite_sheet = load_image("sonic-sprite.png")
@@ -132,11 +138,7 @@ def main():
                         current_time - action_started,
                     )
                     previous_time = current_time
-                    clear_canvas()
-                    draw_frame(
-                        sprite_sheet, frame, x, y
-                    )
-                    update_canvas()
+                    render(sprite_sheet, frame, x, y)
                     delay(FRAME_TIME)
             delay(ACTION_PAUSE)
 
