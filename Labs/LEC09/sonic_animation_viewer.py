@@ -10,7 +10,9 @@ def main():
     sprite_sheet = load_image("sonic-sprite.png")
     while True:
         for event in get_events():
-            if event.type == SDL_QUIT:
+            if event.type == SDL_QUIT or (
+                event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE
+            ):
                 close_canvas()
                 return
 
