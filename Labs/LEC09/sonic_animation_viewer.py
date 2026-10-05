@@ -6,9 +6,9 @@ CANVAS_HEIGHT = 600
 SCALE = 4
 SPRITE_WIDTH = 399
 SPRITE_HEIGHT = 525
-FRAME_WIDTH = 32
+FRAME_WIDTH = 28
 FRAME_HEIGHT = 40
-FRAME_STEP = 34
+FRAME_STEP = 35
 IDLE_TOP = 39
 FRAME_TIME = 0.08
 REPEAT_COUNT = 5
@@ -34,7 +34,7 @@ def make_frames():
     for action, count, top in ACTION_STRIPS:
         bottom = SPRITE_HEIGHT - top - FRAME_HEIGHT
         frames[action] = [
-            (1 + index * FRAME_STEP, bottom, FRAME_WIDTH, FRAME_HEIGHT)
+            (2 + index * FRAME_STEP, bottom, FRAME_WIDTH, FRAME_HEIGHT)
             for index in range(count)
         ]
     return frames
@@ -72,6 +72,8 @@ def next_x(action, x, direction, delta):
 
 
 def next_position(action, x, y, direction, delta, elapsed):
+    if action not in MOVING_ACTIONS and action != "jump":
+        x = CANVAS_WIDTH / 2
     x, direction = next_x(action, x, direction, delta)
     if action == "jump":
         phase = elapsed % 1.0
