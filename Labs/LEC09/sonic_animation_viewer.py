@@ -110,18 +110,18 @@ def main():
     y = CANVAS_HEIGHT / 2
     direction = 1
     while True:
-        for event in get_events():
-            if event.type == SDL_QUIT or (
-                event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE
-            ):
-                close_canvas()
-                return
+        if should_exit():
+            close_canvas()
+            return
         clear_canvas()
         for action in action_names():
             for _ in range(REPEAT_COUNT):
                 action_started = get_time()
                 previous_time = get_time()
                 for frame in frames[action]:
+                    if should_exit():
+                        close_canvas()
+                        return
                     current_time = get_time()
                     x, y, direction = next_position(
                         action,
