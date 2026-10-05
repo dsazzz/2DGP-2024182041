@@ -18,6 +18,14 @@ def first_frame():
     return 1, bottom, FRAME_WIDTH, FRAME_HEIGHT
 
 
+def idle_frames():
+    bottom = SPRITE_HEIGHT - IDLE_TOP - FRAME_HEIGHT
+    return [
+        (1 + index * FRAME_STEP, bottom, FRAME_WIDTH, FRAME_HEIGHT)
+        for index in range(10)
+    ]
+
+
 def draw_frame(sprite_sheet, frame, x, y):
     left, bottom, width, height = frame
     sprite_sheet.clip_draw(
