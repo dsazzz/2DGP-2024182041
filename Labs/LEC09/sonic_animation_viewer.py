@@ -8,7 +8,11 @@ CANVAS_HEIGHT = 600
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     sprite_sheet = load_image("sonic-sprite.png")
-    close_canvas()
+    while True:
+        for event in get_events():
+            if event.type == SDL_QUIT:
+                close_canvas()
+                return
 
 
 if __name__ == "__main__":
