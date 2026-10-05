@@ -13,6 +13,19 @@ IDLE_TOP = 39
 FRAME_TIME = 0.08
 REPEAT_COUNT = 5
 
+ACTION_STRIPS = (
+    ("idle", 10, 39),
+    ("run", 10, 79),
+    ("jump", 6, 121),
+    ("roll", 8, 167),
+    ("spin", 6, 206),
+    ("fall", 8, 238),
+    ("attack", 8, 283),
+    ("brake", 6, 326),
+    ("pose", 6, 377),
+    ("celebrate", 8, 426),
+)
+
 
 def first_frame():
     bottom = SPRITE_HEIGHT - IDLE_TOP - FRAME_HEIGHT
