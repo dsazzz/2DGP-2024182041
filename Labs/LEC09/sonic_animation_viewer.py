@@ -12,6 +12,7 @@ FRAME_STEP = 34
 IDLE_TOP = 39
 FRAME_TIME = 0.08
 REPEAT_COUNT = 5
+ACTION_PAUSE = 1.0
 
 ACTION_STRIPS = (
     ("idle", 10, 39),
@@ -83,6 +84,7 @@ def main():
                     )
                     update_canvas()
                     delay(FRAME_TIME)
+            delay(ACTION_PAUSE)
 
 
 if __name__ == "__main__":
