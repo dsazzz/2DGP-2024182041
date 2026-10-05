@@ -51,6 +51,10 @@ def make_frames():
     return frames
 
 
+def action_names():
+    return tuple(action for action, _, _ in ACTION_STRIPS)
+
+
 def draw_frame(sprite_sheet, frame, x, y):
     left, bottom, width, height = frame
     sprite_sheet.clip_draw(
