@@ -26,6 +26,7 @@ ACTION_STRIPS = (
     ("pose", 6, 377),
     ("celebrate", 8, 426),
 )
+MOVING_ACTIONS = ("run", "roll", "spin", "attack", "brake")
 
 
 def first_frame():
@@ -62,6 +63,17 @@ def validate_frames(frames):
         for left, bottom, width, height in action_frames:
             assert 0 <= left <= SPRITE_WIDTH - width
             assert 0 <= bottom <= SPRITE_HEIGHT - height
+
+
+def next_x(action, x, direction, delta):
+    if action not in MOVING_ACTIONS:
+        return x, direction
+    x += direction * 180 * delta
+    if x >= CANVAS_WIDTH - 100:
+        return CANVAS_WIDTH - 100, -1
+    if x <= 100:
+        return 100, 1
+    return x, direction
 
 
 def draw_frame(sprite_sheet, frame, x, y):
