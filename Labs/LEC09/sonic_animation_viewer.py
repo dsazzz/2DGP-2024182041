@@ -76,6 +76,10 @@ def next_x(action, x, direction, delta):
     return x, direction
 
 
+def next_position(action, x, direction, delta):
+    return next_x(action, x, direction, delta)
+
+
 def draw_frame(sprite_sheet, frame, x, y):
     left, bottom, width, height = frame
     sprite_sheet.clip_draw(
