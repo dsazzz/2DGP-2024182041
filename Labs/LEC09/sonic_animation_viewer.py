@@ -4,6 +4,8 @@ from pico2d import *
 CANVAS_WIDTH = 1200
 CANVAS_HEIGHT = 600
 SCALE = 4
+SPRITE_WIDTH = 399
+SPRITE_HEIGHT = 525
 
 
 def main():
