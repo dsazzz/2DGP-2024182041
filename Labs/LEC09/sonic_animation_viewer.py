@@ -65,6 +65,14 @@ def validate_frames(frames):
             assert 0 <= bottom <= SPRITE_HEIGHT - height
 
 
+def validate_configuration():
+    assert CANVAS_WIDTH == 1200
+    assert CANVAS_HEIGHT == 600
+    assert SCALE == 4
+    assert REPEAT_COUNT == 5
+    assert ACTION_PAUSE == 1.0
+
+
 def next_x(action, x, direction, delta):
     if action not in MOVING_ACTIONS:
         return x, direction
@@ -111,6 +119,7 @@ def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     sprite_sheet = load_image("sonic-sprite.png")
     frames = make_frames()
+    validate_configuration()
     validate_frames(frames)
     x = CANVAS_WIDTH / 2
     y = CANVAS_HEIGHT / 2
