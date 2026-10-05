@@ -56,6 +56,14 @@ def action_names():
     return tuple(action for action, _, _ in ACTION_STRIPS)
 
 
+def validate_frames(frames):
+    assert sum(len(action_frames) for action_frames in frames.values()) == 76
+    for action_frames in frames.values():
+        for left, bottom, width, height in action_frames:
+            assert 0 <= left <= SPRITE_WIDTH - width
+            assert 0 <= bottom <= SPRITE_HEIGHT - height
+
+
 def draw_frame(sprite_sheet, frame, x, y):
     left, bottom, width, height = frame
     sprite_sheet.clip_draw(
@@ -67,6 +75,7 @@ def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     sprite_sheet = load_image("sonic-sprite.png")
     frames = make_frames()
+    validate_frames(frames)
     while True:
         for event in get_events():
             if event.type == SDL_QUIT or (
