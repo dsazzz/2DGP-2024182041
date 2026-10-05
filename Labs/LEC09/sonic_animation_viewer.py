@@ -40,6 +40,17 @@ def idle_frames():
     ]
 
 
+def make_frames():
+    frames = {}
+    for action, count, top in ACTION_STRIPS:
+        bottom = SPRITE_HEIGHT - top - FRAME_HEIGHT
+        frames[action] = [
+            (1 + index * FRAME_STEP, bottom, FRAME_WIDTH, FRAME_HEIGHT)
+            for index in range(count)
+        ]
+    return frames
+
+
 def draw_frame(sprite_sheet, frame, x, y):
     left, bottom, width, height = frame
     sprite_sheet.clip_draw(
