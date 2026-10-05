@@ -3,6 +3,7 @@ from pico2d import *
 
 CANVAS_WIDTH = 1200
 CANVAS_HEIGHT = 600
+SCALE = 4
 
 
 def main():
