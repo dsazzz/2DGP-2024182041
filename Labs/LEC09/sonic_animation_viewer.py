@@ -36,7 +36,7 @@ def draw_frame(sprite_sheet, frame, x, y):
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     sprite_sheet = load_image("sonic-sprite.png")
-    frame = first_frame()
+    frames = idle_frames()
     while True:
         for event in get_events():
             if event.type == SDL_QUIT or (
@@ -45,9 +45,11 @@ def main():
                 close_canvas()
                 return
         clear_canvas()
-        draw_frame(sprite_sheet, frame, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
-        update_canvas()
-        delay(FRAME_TIME)
+        for frame in frames:
+            clear_canvas()
+            draw_frame(sprite_sheet, frame, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+            update_canvas()
+            delay(FRAME_TIME)
 
 
 if __name__ == "__main__":
