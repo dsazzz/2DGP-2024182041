@@ -76,8 +76,12 @@ def next_x(action, x, direction, delta):
     return x, direction
 
 
-def next_position(action, x, direction, delta):
-    return next_x(action, x, direction, delta)
+def next_position(action, x, y, direction, delta, elapsed):
+    x, direction = next_x(action, x, direction, delta)
+    if action == "jump":
+        phase = elapsed % 1.0
+        y = 100 + 350 * (1 - abs(2 * phase - 1))
+    return x, y, direction
 
 
 def draw_frame(sprite_sheet, frame, x, y):
@@ -93,6 +97,7 @@ def main():
     frames = make_frames()
     validate_frames(frames)
     x = CANVAS_WIDTH / 2
+    y = CANVAS_HEIGHT / 2
     direction = 1
     while True:
         for event in get_events():
@@ -104,16 +109,22 @@ def main():
         clear_canvas()
         for action in action_names():
             for _ in range(REPEAT_COUNT):
+                action_started = get_time()
                 previous_time = get_time()
                 for frame in frames[action]:
                     current_time = get_time()
-                    x, direction = next_position(
-                        action, x, direction, current_time - previous_time
+                    x, y, direction = next_position(
+                        action,
+                        x,
+                        y,
+                        direction,
+                        current_time - previous_time,
+                        current_time - action_started,
                     )
                     previous_time = current_time
                     clear_canvas()
                     draw_frame(
-                        sprite_sheet, frame, x, CANVAS_HEIGHT // 2
+                        sprite_sheet, frame, x, y
                     )
                     update_canvas()
                     delay(FRAME_TIME)
