@@ -17,6 +17,13 @@ def first_frame():
     return 1, bottom, FRAME_WIDTH, FRAME_HEIGHT
 
 
+def draw_frame(sprite_sheet, frame, x, y):
+    left, bottom, width, height = frame
+    sprite_sheet.clip_draw(
+        left, bottom, width, height, x, y, width * SCALE, height * SCALE
+    )
+
+
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     sprite_sheet = load_image("sonic-sprite.png")
