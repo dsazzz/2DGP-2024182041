@@ -9,6 +9,12 @@ SPRITE_HEIGHT = 525
 FRAME_WIDTH = 32
 FRAME_HEIGHT = 40
 FRAME_STEP = 34
+IDLE_TOP = 39
+
+
+def first_frame():
+    bottom = SPRITE_HEIGHT - IDLE_TOP - FRAME_HEIGHT
+    return 1, bottom, FRAME_WIDTH, FRAME_HEIGHT
 
 
 def main():
