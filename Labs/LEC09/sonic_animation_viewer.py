@@ -11,6 +11,7 @@ FRAME_HEIGHT = 40
 FRAME_STEP = 34
 IDLE_TOP = 39
 FRAME_TIME = 0.08
+REPEAT_COUNT = 5
 
 
 def first_frame():
