@@ -84,6 +84,16 @@ def next_position(action, x, y, direction, delta, elapsed):
     return x, y, direction
 
 
+def is_exit_event(event):
+    return event.type == SDL_QUIT or (
+        event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE
+    )
+
+
+def should_exit():
+    return any(is_exit_event(event) for event in get_events())
+
+
 def draw_frame(sprite_sheet, frame, x, y):
     left, bottom, width, height = frame
     sprite_sheet.clip_draw(
