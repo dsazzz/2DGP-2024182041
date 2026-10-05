@@ -46,11 +46,12 @@ def main():
                 close_canvas()
                 return
         clear_canvas()
-        for frame in frames:
-            clear_canvas()
-            draw_frame(sprite_sheet, frame, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
-            update_canvas()
-            delay(FRAME_TIME)
+        for _ in range(REPEAT_COUNT):
+            for frame in frames:
+                clear_canvas()
+                draw_frame(sprite_sheet, frame, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+                update_canvas()
+                delay(FRAME_TIME)
 
 
 if __name__ == "__main__":
